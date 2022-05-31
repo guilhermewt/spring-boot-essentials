@@ -4,6 +4,9 @@ public class Anime {
 	
 	private String name;
 	
+	
+	
+	
 	public Anime() {
 		
 	}
