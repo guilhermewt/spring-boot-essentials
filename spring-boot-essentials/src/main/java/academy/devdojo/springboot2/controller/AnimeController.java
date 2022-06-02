@@ -29,6 +29,7 @@ public class AnimeController {
 	
 	
 	private final DateUtil dateUtil;
+	
 	private final animeService animeService;
 	
 	@GetMapping
