@@ -2,12 +2,12 @@ package academy.devdojo.springboot2.exception;
 
 import java.time.LocalDateTime;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
-@Data
-@Builder
-public class BadRequestExceptionDatails {
+@Getter
+@SuperBuilder
+public class BadRequestExceptionDatails extends ExceptionDetails{
 	
 	private String title;
 	private int status;
