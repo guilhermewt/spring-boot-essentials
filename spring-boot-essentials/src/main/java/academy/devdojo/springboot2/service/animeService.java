@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import academy.devdojo.springboot2.domain.Anime;
@@ -23,8 +25,8 @@ public class animeService {
 	private final AnimeRepository animesRepository;
 	
 	
-	public List<Anime> listAll(){
-		return animesRepository.findAll();
+	public Page<Anime> listAll(Pageable pageable){
+		return animesRepository.findAll(pageable);
 	}
 	
 	public List<Anime> findByName(String name){
