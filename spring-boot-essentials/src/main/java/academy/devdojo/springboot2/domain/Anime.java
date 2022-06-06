@@ -23,4 +23,5 @@ public class Anime {
 	private String name;
 	
 	
+	
 }
