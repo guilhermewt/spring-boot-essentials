@@ -40,6 +40,7 @@ public class AnimeController {
 	private final animeService animeService;
 	
 	
+	//http://localhost:8080/animes?sort=name,desc
 	//http://localhost:8080/animes?size=5&page=2
 	@GetMapping
 	public ResponseEntity<Page<Anime>> list(Pageable pageable){
