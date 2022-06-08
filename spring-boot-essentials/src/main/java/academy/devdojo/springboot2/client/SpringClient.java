@@ -4,7 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,13 +30,35 @@ public class SpringClient {
 		
 		
 		
-		//para pegar grandes quantidades de dados o getObject so aceita Arrays entao temos que fazer a conversao com o
+		//para pegar grandes quantidades de dados o getObject so aceita Arrays entao temos que fazer a conversao com o 
+		//exchange e new ParameterizedTypeReference
 		ResponseEntity<List<Anime>> exchange = new RestTemplate().exchange("http://localhost:8080/animes/all",
 				HttpMethod.GET,
 				null,
 				new ParameterizedTypeReference<>() {});
 		
 		log.info(exchange.getBody());
+		
+		
+//		Anime kingDom = Anime.builder().name("kingDom").build();
+//		Anime KingdomSaved = new RestTemplate().postForObject("http://localhost:8080/animes/", kingDom, Anime.class);
+//		log.info("saved anime {}", KingdomSaved);
+		
+		
+		
+		//salvando com exchange
+		Anime samuraiChamploo = Anime.builder().name("samurai champloo").build();
+		ResponseEntity<Anime> samuraiChamplooSaved = new RestTemplate().exchange("http://localhost:8080/animes/",
+				HttpMethod.POST,
+				new HttpEntity<>(samuraiChamploo,createJsonHeader()),
+				Anime.class);
+		
+		log.info("saved anime {}", samuraiChamplooSaved);
 	}
 
+	 private static HttpHeaders createJsonHeader() {
+	        HttpHeaders httpHeaders = new HttpHeaders();
+	        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+	        return httpHeaders;
+	    }
 }

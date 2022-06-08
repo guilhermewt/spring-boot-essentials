@@ -1,6 +1,6 @@
 package academy.devdojo.springboot2.requests;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -8,6 +8,6 @@ import lombok.Data;
 
 public class AnimePostRequestBody {
 	
-	@NotEmpty(message = "the anime name cannot be empty")
+	@NotNull(message = "the anime name cannot be empty")
 	private String name;
 }
