@@ -64,6 +64,7 @@ public class SpringClient {
 				Void.class);
 		
 		
+		
 		log.info(samuraiChamplooUpdate);
 		
 
