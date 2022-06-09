@@ -40,6 +40,7 @@ public class SpringClient {
 		log.info(exchange.getBody());
 		
 		
+		
 //		Anime kingDom = Anime.builder().name("kingDom").build();
 //		Anime KingdomSaved = new RestTemplate().postForObject("http://localhost:8080/animes/", kingDom, Anime.class);
 //		log.info("saved anime {}", KingdomSaved);
