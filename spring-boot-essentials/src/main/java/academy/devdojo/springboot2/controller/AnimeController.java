@@ -43,13 +43,13 @@ public class AnimeController {
 	//http://localhost:8080/animes?size=5&page=2
 	@GetMapping
 	public ResponseEntity<Page<Anime>> list(Pageable pageable){
-		log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
+		//log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
 		return ResponseEntity.ok(animeService.listAll(pageable));
 	}
 	
 	@GetMapping(path = "/all")
 	public ResponseEntity<List<Anime>> listAll(){
-		log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
+		//log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
 		return ResponseEntity.ok(animeService.listAllNonPageable());
 	}
 	

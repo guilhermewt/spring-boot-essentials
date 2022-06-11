@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import academy.devdojo.springboot2.domain.Anime;
+import academy.devdojo.springboot2.util.AnimeCreator;
 import lombok.extern.log4j.Log4j2;
  
 @Log4j2
@@ -27,7 +28,7 @@ class AnimeRepositoryTest {
 	@DisplayName("save persist anime when successufull")
 	void save_persistAnime_whenSuccessfull() {
 		
-		Anime animeToBeSaved = createAnime();
+		Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 		Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 	    
 		Assertions.assertThat(animeSaved).isNotNull();	
@@ -41,7 +42,7 @@ class AnimeRepositoryTest {
 	@DisplayName("save updates anime when successufull")
 	void save_updateAnime_whenSuccessfull() {
 		
-		Anime animeToBeSaved = createAnime();
+		Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 		Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 		
 		animeSaved.setName("overlord");
@@ -59,7 +60,7 @@ class AnimeRepositoryTest {
 	@DisplayName("delete removes anime when successufull")
 	void delete_RemovesAnime_whenSuccessfull() {
 		
-		Anime animeToBeSaved = createAnime();
+		Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 		Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 		
 		this.animeRepository.delete(animeSaved);
@@ -74,7 +75,7 @@ class AnimeRepositoryTest {
 	@DisplayName("find by name Return list of anime when successufull")
 	void findByName_ReturnsListofAnime_whenSuccessfull() {
 		
-		Anime animeToBeSaved = createAnime();
+		Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 		Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 		
 		String name = animeSaved.getName();
@@ -92,15 +93,14 @@ class AnimeRepositoryTest {
 	@DisplayName("find by name Return empty list when no anime is found")
 	void findByName_ReturnsListEmpty_whennoAnimeIsNotFound() {
 		
-		Anime animeToBeSaved = createAnime();
+		Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 		Anime animeSaved = this.animeRepository.save(animeToBeSaved);
-		
 		
 		List<Anime> animes = this.animeRepository.findByName("xaxa");
 			
 		Assertions.assertThat(animes).isEmpty();
+	
 		
-
 	}
 	
 	@Test
