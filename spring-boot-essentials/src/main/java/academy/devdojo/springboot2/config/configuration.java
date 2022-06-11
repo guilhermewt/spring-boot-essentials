@@ -19,6 +19,7 @@ public class configuration implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 	
 		Anime a1 = new Anime(1l ,"steins gate");
+		
 		Anime a2 = new Anime(2l,"naruto");
 		Anime a3 = new Anime(3l,"dbz");
 		Anime a4 = new Anime(4l,"over load");
