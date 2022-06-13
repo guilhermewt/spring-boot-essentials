@@ -109,6 +109,7 @@ class AnimeControllerTest {
 		Assertions.assertThat(animes).isNotNull().isNotEmpty().hasSize(1);
 
 		Assertions.assertThat(animes.get(0).getName()).isEqualTo(expectedName);
+		
 
 	}
 	
