@@ -9,5 +9,6 @@ public class AnimePutRequestBodyCreator {
 				.id(AnimeCreator.createValidUpdateAnime().getId())
 				.name(AnimeCreator.createAnimeToBeSaved().getName())
 				.build();
+		
 	}
 }
