@@ -10,5 +10,6 @@ public class AnimePutRequestBodyCreator {
 				.name(AnimeCreator.createAnimeToBeSaved().getName())
 				.build();
 		
+		
 	}
 }

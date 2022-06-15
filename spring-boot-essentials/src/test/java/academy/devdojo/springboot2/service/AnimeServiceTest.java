@@ -130,6 +130,7 @@ public class AnimeServiceTest {
 		List<Anime> animes = animeService.findByName("anime");
 
 		Assertions.assertThat(animes).isNotNull().isEmpty();
+		
 
 	}
 	
