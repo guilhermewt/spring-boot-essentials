@@ -1,0 +1,5 @@
+mvn test : vai testa apenas animeControllerTest
+mvn test -Pintegration-tests : so o test de integracao (depois de ter arrumado POM.xml) Pom: só com isso "<include>**/*IT.*</include>"
+
+mvn test -Pintegration-tests : (todo mundo que tiver tests vai ser executado pom) Pom : <include>**/*Test.*</include>
+																						<include>**/*IT.*</include>
