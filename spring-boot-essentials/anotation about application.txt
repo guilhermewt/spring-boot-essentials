@@ -8,7 +8,7 @@ SECURITY:
 
 (Spring Security pt 01 - CSRF Token)
 
-  - no postman a requisicao post nao funciona pois csrf esta como true entao voce nao esta autenticado mas nao tem autorizacao
+  - no postman a requisicao post nao funciona pois csrf esta como true entao voce nao esta autenticado mas nao tem autorizacao 
  
   - depois de ter feito as configuracoes para liberar o csrf no postman faça
     
@@ -16,5 +16,20 @@ SECURITY:
      - post -> headers 
        KEY:X-XSRF-TOKEN e no value coloque que vc copiou
        
-  - agora ele inserir normalmente no banco e retorna 201 created     																					
+  - agora ele inserir normalmente no banco e retorna 201 created
+  
+  * para nao colocar isso toda hora podemos meio que automatizar 
+  
+    - postman -> Tests 
+         var xsrfCookie = postman.getResponseCookie("XSRF-TOKEN");
+         postman.setEnvironmentVariable("x-xsrf-token", xsrfCookie.value); 
+         
+    - criar um ambiente no olhozinho, name = "devdojo-env"    e dá um get, depois ele vai adicionar o key e o value no ambiente devdojo-env
+    - vai post -> headers -> value {{xsrf-token}}   
+    
+(Segurança a nível de métodos com PreAuthori)
+
+ - apagar a parte de token que fizemos na ultima aula
+ - eu vou querer que para metodos quando for salva no banco ele tenha um determinado login
+ - no que vamos fazer hoje la no controller eu defino a role para admin = somente guilherme vai pode fazer salvamento e user faz os demais       																					
 																					
