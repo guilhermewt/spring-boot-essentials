@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -16,7 +17,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	//todas urls vao ter que passar por uma autenticacao basica poderia ser formLogin
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
+		http.csrf().disable() //colocar esse apenas no final da aula o disable e se tiver em producao tirar este disable tambem
+		//.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and() //quando o csrf estiver ativador as aplicacaoes frontend nao poderao  os dados, para pegar vao ter que informar o cookie
+		.authorizeRequests()
 		.anyRequest()
 		.authenticated()
 		.and()

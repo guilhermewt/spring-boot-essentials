@@ -3,3 +3,18 @@ mvn test -Pintegration-tests : so o test de integracao (depois de ter arrumado P
 
 mvn test -Pintegration-tests : (todo mundo que tiver tests vai ser executado pom) Pom : <include>**/*Test.*</include>
 																						<include>**/*IT.*</include>
+																					
+SECURITY:
+
+(Spring Security pt 01 - CSRF Token)
+
+  - no postman a requisicao post nao funciona pois csrf esta como true entao voce nao esta autenticado mas nao tem autorizacao
+ 
+  - depois de ter feito as configuracoes para liberar o csrf no postman faça
+    
+     - de um get e pegue o value do token
+     - post -> headers 
+       KEY:X-XSRF-TOKEN e no value coloque que vc copiou
+       
+  - agora ele inserir normalmente no banco e retorna 201 created     																					
+																					
