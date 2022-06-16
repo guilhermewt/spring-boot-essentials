@@ -17,7 +17,8 @@ public class configuration implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
-	
+	  // animeRepository.deleteAll();
+		
 //		Anime a1 = new Anime(1l ,"steins gate");
 //		
 //		Anime a2 = new Anime(2l,"naruto");
