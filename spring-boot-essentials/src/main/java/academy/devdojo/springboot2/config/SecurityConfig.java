@@ -37,6 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable() //colocar esse apenas no final da aula o disable e se tiver em producao tirar este disable tambem
 		//.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and() //quando o csrf estiver ativador as aplicacaoes frontend nao poderao  os dados, para pegar vao ter que informar o cookie
 		.authorizeRequests()
+		.antMatchers("/animes/admin/**").hasRole("ADMIN")
+		.antMatchers("/animes/**").hasRole("USER")
 		.anyRequest()
 		.authenticated()
 		.and()
