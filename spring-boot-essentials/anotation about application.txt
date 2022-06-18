@@ -31,5 +31,18 @@ SECURITY:
 
  - apagar a parte de token que fizemos na ultima aula
  - eu vou querer que para metodos quando for salva no banco ele tenha um determinado login
- - no que vamos fazer hoje la no controller eu defino a role para admin = somente guilherme vai pode fazer salvamento e user faz os demais       																					
+ - no que vamos fazer hoje la no controller eu defino a role para admin = somente guilherme vai pode fazer salvamento e user faz os demais 
+ 
+ (Spring Security pt 03 - Authentication Principal e página padrão de)
+ 
+ @AuthenticationPrincipal UserDetails userDetails -> vc pega os dados de quem esta acessando
+ - colocando um form no config voce cria um form na hora de acessar pelo navegador      	
+ 
+ - http://localhost:8080/login?logout para apagar o login
+ 
+ (Spring Security pt 04 - Autenticação com usuário no banco de dados)
+ 
+ insert into dev_dojo_user (id,authorities,name,password,user_name,username)
+values(2,'ROLE_USER','DevDojo Academy','{bcrypt}$2a$10$0pe2kclSD.WqyVsGNtqraO8FSEcBn9ofu54cf9c86nrg0FkFT31XG','devdojo','devdojo')
+																					
 																					
