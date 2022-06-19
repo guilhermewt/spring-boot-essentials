@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,7 @@ import academy.devdojo.springboot2.requests.AnimePostRequestBody;
 import academy.devdojo.springboot2.requests.AnimePutRequestBody;
 import academy.devdojo.springboot2.service.animeService;
 import academy.devdojo.springboot2.util.DateUtil;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -44,7 +46,7 @@ public class AnimeController {
 	//http://localhost:8080/animes?sort=name,desc
 	//http://localhost:8080/animes?size=5&page=2
 	@GetMapping
-	public ResponseEntity<Page<Anime>> list(Pageable pageable){
+	public ResponseEntity<Page<Anime>> list(@ParameterObject Pageable pageable){
 		//log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
 		return ResponseEntity.ok(animeService.listAll(pageable));
 	}

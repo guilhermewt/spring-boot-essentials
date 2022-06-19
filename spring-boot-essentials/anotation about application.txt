@@ -44,5 +44,8 @@ SECURITY:
  
  insert into dev_dojo_user (id,authorities,name,password,user_name,username)
 values(2,'ROLE_USER','DevDojo Academy','{bcrypt}$2a$10$0pe2kclSD.WqyVsGNtqraO8FSEcBn9ofu54cf9c86nrg0FkFT31XG','devdojo','devdojo')
-																					
+	
+(Documentação com SpringDoc OpenAPI pt 01)		
+
+ - http://localhost:8080/swagger-ui.html																		
 																					
