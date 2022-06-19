@@ -62,6 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		auth.userDetailsService(devDojoUserDetailsService).passwordEncoder(passwordEncoder);
 		
+		
 	}
 
 }
