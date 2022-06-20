@@ -242,6 +242,7 @@ class AnimeControllerIT {
 		
 		Anime savedAnime = animeRepository.save(AnimeCreator.createAnimeToBeSaved());
 		
+		
 		devDojoUserRepository.save(USER);
 		
         ResponseEntity<Void> animeResponseEntity = testRestTemplateRoleUser.exchange("/animes/admin/{id}"
